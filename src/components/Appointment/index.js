@@ -5,17 +5,17 @@ import Show from "./Show";
 import "components/Appointment/styles.scss";
 
 export default function Appointment(props) {
-  function checkAppointment(time) {
-    let stringReponse = "";
+  // function checkAppointment(time) {
+  //   let stringReponse = "";
 
-    if (time) {
-      stringReponse += `Appointment at ${time}`;
-    } else {
-      stringReponse += "No Appointments";
-    }
+  //   if (time) {
+  //     stringReponse += `Appointment at ${time}`;
+  //   } else {
+  //     stringReponse += "No Appointments";
+  //   }
 
-    return stringReponse;
-  }
+  //   return stringReponse;
+  // }
 
   return (
     <article className="appointment">
