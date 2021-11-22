@@ -23,3 +23,27 @@ export function getAppointmentsForDay(state, day) {
  
   return appointmentsForDay;
 }
+
+
+export function getInterview(state, interview) {
+  const interviewersList = state.interviewers;
+  const completeInterview = {};
+
+  if(interview !== null) {
+    const interviewerId = interview.interviewer;
+
+    completeInterview["student"] = interview.student;
+
+    if (interviewersList[interviewerId]) {
+      completeInterview["interviewer"] = {
+      "id": interviewerId,
+      "name": interviewersList[interviewerId].name,
+      "avatar": interviewersList[interviewerId].avatar
+      }
+    }
+
+    return completeInterview;
+  }
+
+  return null;
+}
