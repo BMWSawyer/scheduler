@@ -2,7 +2,13 @@ import React from "react";
 import Header from "./Header";
 import Empty from "./Empty";
 import Show from "./Show";
+import Form from "./Form";
+//import Confirm from "./Confirm";
+//import Status from "./Status";
+//import Error from "./Error";
+import useVisualMode from "hooks/useVisualMode";
 import "components/Appointment/styles.scss";
+import Status from "./Status";
 
 export default function Appointment(props) {
   // function checkAppointment(time) {
@@ -16,18 +22,39 @@ export default function Appointment(props) {
 
   //   return stringReponse;
   // }
+  const EMPTY = "EMPTY";
+  const SHOW = "SHOW";
+  const CREATE = "CREATE";
+  //const EDIT = "EDIT";
+  //const CONFIRM = "CONFIRM";
+  const SAVING = "SAVING";
+  //const DELETING = "DELETING";
+
+  const { mode, transition, back } = useVisualMode(
+    props.interview ? SHOW : EMPTY
+  );
 
   return (
     <article className="appointment">
       <Header time={props.time} />
-      {props.interview ? (
+      {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
+      {mode === SHOW && (
         <Show
           student={props.interview.student}
           interviewer={props.interview.interviewer}
         />
-      ) : (
-        <Empty />
       )}
+      {mode === CREATE && (
+        <Form 
+          interviewers={[]}
+          onCancel={() => back(EMPTY)}
+          onSave={() => transition(SAVING)}
+        />)}
+      {mode === SAVING && (
+        <Status
+          message={"SAVING"}
+        />)}
+
     </article>
   );
 }
