@@ -47,3 +47,29 @@ export function getInterview(state, interview) {
 
   return null;
 }
+
+export function getInterviewersForDay(state, day) {
+  const interviewers = state.interviewers;
+  const daysArray = state.days;
+  const dailyInterviewers = [];
+  const interviewersForDay = [];
+
+ daysArray.forEach((dayOfWeek) => { 
+    
+    if (day === dayOfWeek.name) {
+      dayOfWeek.interviewers.map(interviewer => dailyInterviewers.push(interviewer));
+    }
+    
+    return dailyInterviewers;
+  });
+
+  for (const interviewerId in interviewers) {
+    dailyInterviewers.forEach((singleInterviewer) => {
+      if (singleInterviewer === interviewers[interviewerId].id) {
+        interviewersForDay.push(interviewers[interviewerId]);
+      }
+    } 
+  )};
+ 
+  return interviewersForDay;
+}
