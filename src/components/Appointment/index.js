@@ -3,12 +3,12 @@ import Header from "./Header";
 import Empty from "./Empty";
 import Show from "./Show";
 import Form from "./Form";
-//import Confirm from "./Confirm";
-//import Status from "./Status";
+import Status from "./Status";
+import Confirm from "./Confirm";
 //import Error from "./Error";
+
 import useVisualMode from "hooks/useVisualMode";
 import "components/Appointment/styles.scss";
-import Status from "./Status";
 
 export default function Appointment(props) {
   // function checkAppointment(time) {
@@ -26,9 +26,9 @@ export default function Appointment(props) {
   const SHOW = "SHOW";
   const CREATE = "CREATE";
   const SAVING = "SAVING";
+  const DELETING = "DELETING";
+  const CONFIRM = "CONFIRM";
   //const EDIT = "EDIT";
-  //const CONFIRM = "CONFIRM";
-  //const DELETING = "DELETING";
 
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
@@ -44,6 +44,11 @@ export default function Appointment(props) {
     .then((res) => transition(SHOW));
   }
 
+  function deleteAppointment() {
+    props.cancelInterview(props.id)
+    .then((res) => transition(EMPTY));
+  }
+
   return (
     <article className="appointment">
       <Header time={props.time} />
@@ -52,6 +57,7 @@ export default function Appointment(props) {
         <Show
           student={props.interview.student}
           interviewer={props.interview.interviewer}
+          onDelete={() => transition(CONFIRM)}
         />
       )}
       {mode === CREATE && (
@@ -67,7 +73,19 @@ export default function Appointment(props) {
         <Status
           message={"SAVING"}
         />)}
-
+      {mode === DELETING && (
+        <Status
+          message={"DELETING"}
+        />)}
+      {mode === CONFIRM && (
+        <Confirm 
+          message={"Are you sure you want to delete this appointment?"}
+          onCancel={() => back(SHOW)}
+          onConfirm={() => {
+            transition(DELETING)
+            deleteAppointment()
+          }}
+        />)}
     </article>
   );
 }
