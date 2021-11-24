@@ -11,17 +11,6 @@ import useVisualMode from "hooks/useVisualMode";
 import "components/Appointment/styles.scss";
 
 export default function Appointment(props) {
-  // function checkAppointment(time) {
-  //   let stringReponse = "";
-
-  //   if (time) {
-  //     stringReponse += `Appointment at ${time}`;
-  //   } else {
-  //     stringReponse += "No Appointments";
-  //   }
-
-  //   return stringReponse;
-  // }
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
   const CREATE = "CREATE";
