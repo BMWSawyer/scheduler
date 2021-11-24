@@ -64,12 +64,10 @@ export default function useApplicationData(props) {
       case SET_INTERVIEW: {
         let interview;
 
-        {
-          !action.interview
-            ? (interview = null)
-            : (interview = action.interview);
-        }
-
+        !action.interview
+          ? (interview = null)
+          : (interview = action.interview);
+        
         const appointment = {
           ...state.appointments[action.id],
           interview: interview,
