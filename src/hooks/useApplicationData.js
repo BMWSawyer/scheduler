@@ -111,18 +111,18 @@ export default function useApplicationData(props) {
   const setDay = (day) => dispatch({ type: SET_DAY, day: day });
 
   function bookInterview(id, interview) {
-    return axios.put(`/api/appointments/${id}`, { interview }).then(() => {
-      dispatch({
-        type: SET_INTERVIEW,
-        id,
-        interview,
+    return axios.put(`/api/appointments/${id}`, { interview })
+      .then(() => {
+        dispatch({
+          type: SET_INTERVIEW,
+          id,
+          interview,
+        });
       });
-    });
   }
 
   function cancelInterview(id) {
-    return axios
-      .delete(`/api/appointments/${id}`, { interview: null })
+    return axios.delete(`/api/appointments/${id}`, { interview: null })
       .then(() => {
         dispatch({
           type: SET_INTERVIEW,
