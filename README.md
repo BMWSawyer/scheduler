@@ -11,11 +11,11 @@ These are five screenshots of the single-page application (SPA) in use. They are
 4. Appointment deletion confirmation
 5. Error status message
 
-!["The main page of Scheduler app"] (https://github.com/BMWSawyer/scheduler/blob/master/docs/scheduler_main-page.png?raw=true)
-!["Create appointment element"] (https://github.com/BMWSawyer/scheduler/blob/master/docs/scheduler_create-appointment.png?raw=true)
-!["Appointment edit view"] (https://github.com/BMWSawyer/scheduler/blob/master/docs/scheduler_edit.png?raw=true)
-!["Appointment deletion confirmation"] (https://github.com/BMWSawyer/scheduler/blob/master/docs/scheduler_delete-confirmation.png?raw=true)
-!["Error status message"] (https://github.com/BMWSawyer/scheduler/blob/master/docs/scheduler_error-message.png?raw=true)
+!["The main page of Scheduler app"](https://github.com/BMWSawyer/scheduler/blob/master/docs/scheduler_main-page.png?raw=true)
+!["Create appointment element"](https://github.com/BMWSawyer/scheduler/blob/master/docs/scheduler_create-appointment.png?raw=true)
+!["Appointment edit view"](https://github.com/BMWSawyer/scheduler/blob/master/docs/scheduler_edit.png?raw=true)
+!["Appointment deletion confirmation"](https://github.com/BMWSawyer/scheduler/blob/master/docs/scheduler_delete-confirmation.png?raw=true)
+!["Error status message"](https://github.com/BMWSawyer/scheduler/blob/master/docs/scheduler_error-message.png?raw=true)
 
 ## Dependencies
 
