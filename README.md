@@ -11,11 +11,11 @@ These are five screenshots of the single-page application (SPA) in use. They are
 4. Appointment deletion confirmation
 5. Error status message
 
-!["The main page of Scheduler app"]
-!["Create appointment element"]
-!["Appointment edit view"]
-!["Appointment deletion confirmation"]
-!["Error status message"]
+!["The main page of Scheduler app"] (https://github.com/BMWSawyer/scheduler/blob/master/docs/scheduler_main-page.png?raw=true)
+!["Create appointment element"] (https://github.com/BMWSawyer/scheduler/blob/master/docs/scheduler_create-appointment.png?raw=true)
+!["Appointment edit view"] (https://github.com/BMWSawyer/scheduler/blob/master/docs/scheduler_edit.png?raw=true)
+!["Appointment deletion confirmation"] (https://github.com/BMWSawyer/scheduler/blob/master/docs/scheduler_delete-confirmation.png?raw=true)
+!["Error status message"] (https://github.com/BMWSawyer/scheduler/blob/master/docs/scheduler_error-message.png?raw=true)
 
 ## Dependencies
 
@@ -27,17 +27,16 @@ These are five screenshots of the single-page application (SPA) in use. They are
 - React-dom
 - React-scripts
 
-## Getting Started
+## Setup/Getting Started
 
 1. Fork this repository, then clone your fork of this repository.
 2. Install dependencies using the `npm install` command.
-3. Start the web server using the `npm run local` or `npm run start` commands. The app will be served at <http://localhost:8080>.
-4. Go to <http://localhost:8080/> in your browser.
-5. Explore the app, submit tweets, resize your browser window, have fun with it!
-
-## Setup
-
-Install dependencies with `npm install`.
+3. Fork and clone the scheduler-api <https://github.com/lighthouse-labs/scheduler-api> into a new directory (NOT within the same directory that you cloned this repository into) on your host machine.
+4. Follow the README.md instructions to setup the scheduler-api.
+5. Start the Webpack Development Server for this repository using the `npm run start` command. The app will be served at <http://localhost:8000>.
+6. Open a new terminal tab/window and start the scheduler-api server. The scheduler-api server will be served at <http://localhost:8001>.
+6. Go to <http://localhost:8000/> in your browser.
+7. Explore the app, add/edit/delete appointments, have fun with it!
 
 ## Running Webpack Development Server
 
