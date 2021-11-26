@@ -94,6 +94,19 @@ export default function useApplicationData(props) {
   }
 
   useEffect(() => {
+    const webSocket = new WebSocket("ws://localhost:8001");
+
+    webSocket.onopen = (event) => {
+      webSocket.onmessage = (event) => {
+        const data = JSON.parse(event.data);
+        
+        if (data.type === "SET_INTERVIEW") {
+          dispatch({ type: SET_INTERVIEW, id: data.id, interview: data.interview });
+        }
+      };
+    };
+
+
     Promise.all([
       axios.get("/api/days"),
       axios.get("/api/appointments"),
